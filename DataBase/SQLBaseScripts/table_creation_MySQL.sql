@@ -2,7 +2,7 @@
 
 CREATE TABLE COMMENT_TELEPHONE (
     NUMERO INTEGER COMMENT 'Numéro téléphone',       -- Phone number
-    TTYPE CHAR(2) COMMENT 'Type',                    -- Type of phone/number
+    TYPE CHAR(2) COMMENT 'Type',                    -- Type of phone/number
     MARQUE INTEGER COMMENT 'Nom de la marque',       -- Brand name
     DATE_ACHAT DATE,                                 -- Date of purchase
     PRIX DECIMAL(9,2),                               -- Price of the phone
