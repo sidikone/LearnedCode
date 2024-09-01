@@ -1,0 +1,144 @@
+/SQL_Scripts
+    /Database              -- Scripts for creating and managing databases
+        create_database.sql
+        use_database.sql
+        drop_database.sql
+
+    /DDL                    -- Data Definition Language scripts
+        /Schemas            -- Scripts related to schema creation and modification
+            create_schema.sql
+            alter_schema.sql
+            drop_schema.sql
+        /Tables             -- Scripts for creating, altering, and dropping tables
+            create_students_table.sql
+            alter_students_table.sql
+            drop_students_table.sql
+        /Views              -- Scripts for managing views
+            create_student_view.sql
+            alter_student_view.sql
+            drop_student_view.sql
+        /Indexes            -- Scripts for index management
+            create_student_index.sql
+            drop_student_index.sql
+        /Constraints        -- Scripts for managing constraints (primary keys, foreign keys, etc.)
+            add_primary_key_to_students.sql
+            add_foreign_key_to_enrollments.sql
+            drop_constraint_from_students.sql
+        /Triggers           -- Scripts for creating, altering, and dropping triggers
+            create_insert_trigger_on_students.sql
+            alter_insert_trigger_on_students.sql
+            drop_insert_trigger_on_students.sql
+        /StoredProcedures   -- Scripts for managing stored procedures
+            create_procedure_calculate_grade.sql
+            alter_procedure_calculate_grade.sql
+            drop_procedure_calculate_grade.sql
+        /Functions          -- Scripts for managing functions
+            create_function_get_average_grade.sql
+            alter_function_get_average_grade.sql
+            drop_function_get_average_grade.sql
+        /Sequences          -- Scripts for creating and managing sequences
+            create_student_id_sequence.sql
+            alter_student_id_sequence.sql
+            drop_student_id_sequence.sql
+        /Synonyms           -- Scripts for creating and managing synonyms
+            create_student_synonym.sql
+            drop_student_synonym.sql
+        /Tablespaces        -- Scripts for managing tablespaces (if applicable)
+            create_students_tablespace.sql
+            alter_students_tablespace.sql
+            drop_students_tablespace.sql
+        /MaterializedViews  -- Scripts for managing materialized views (if applicable)
+            create_students_mv.sql
+            refresh_students_mv.sql
+            drop_students_mv.sql
+
+    /DML                    -- Data Manipulation Language scripts
+        /Insert             -- Scripts for inserting data into tables
+            insert_into_students.sql
+            bulk_insert_students.sql
+        /Update             -- Scripts for updating existing data in tables
+            update_student_email.sql
+            update_course_name.sql
+        /Delete             -- Scripts for deleting data from tables
+            delete_from_students.sql
+            bulk_delete_from_courses.sql
+        /Select             -- Scripts for retrieving data from tables
+            select_all_students.sql
+            select_students_with_conditions.sql
+        /Merge              -- Scripts for merging data (if supported)
+            merge_students_data.sql
+        /Upsert             -- Scripts for upserting data (insert or update)
+            upsert_students.sql
+        /BulkLoad           -- Scripts for bulk loading data into tables
+            bulk_load_students.sql
+        /DataExport         -- Scripts for exporting data from tables
+            export_students_to_csv.sql
+        /DataImport         -- Scripts for importing data into tables
+            import_students_from_csv.sql
+
+    /DCL                    -- Data Control Language scripts
+        /Users              -- Scripts for managing database users
+            create_user_student_admin.sql
+            alter_user_student_admin.sql
+            drop_user_student_admin.sql
+        /Roles              -- Scripts for managing roles and role-based access control
+            create_role_student_viewer.sql
+            grant_role_student_viewer.sql
+            revoke_role_student_viewer.sql
+            drop_role_student_viewer.sql
+        /Permissions        -- Scripts for granting and revoking permissions
+            grant_select_on_students.sql
+            revoke_insert_on_students.sql
+        /Profiles           -- Scripts for managing user profiles and resource limits
+            create_profile_student.sql
+            alter_profile_student.sql
+            drop_profile_student.sql
+        /Auditing           -- Scripts related to database auditing and monitoring
+            enable_auditing_on_students.sql
+            disable_auditing_on_students.sql
+
+    /TCL                    -- Transaction Control Language scripts
+        /Transactions       -- Scripts related to transaction management
+            begin_transaction.sql
+            commit_transaction.sql
+            rollback_transaction.sql
+            savepoint_in_transaction.sql
+            release_savepoint.sql
+        /Locking            -- Scripts for managing locks and concurrency
+            lock_table_students.sql
+            unlock_table_students.sql
+        /IsolationLevels    -- Scripts for setting transaction isolation levels
+            set_isolation_level_read_committed.sql
+            set_isolation_level_serializable.sql
+
+    /Utilities              -- Miscellaneous utility scripts
+        /DataMigration      -- Scripts for data migration tasks
+            migrate_students_to_new_schema.sql
+        /BackupRestore      -- Scripts for backup and restore operations
+            backup_students_table.sql
+            restore_students_table.sql
+        /Maintenance        -- Scripts for database maintenance tasks
+            analyze_students_table.sql
+            rebuild_students_index.sql
+            clean_up_old_data.sql
+        /Monitoring         -- Scripts for monitoring and performance tuning
+            check_students_table_stats.sql
+            monitor_long_running_queries.sql
+        /Automation         -- Scripts for automated tasks (e.g., scheduling)
+            schedule_students_data_backup.sql
+            automate_students_report.sql
+
+    /Orders                 -- SQL commands and utilities
+        show_tables.sql
+        show_columns.sql
+        show_databases.sql
+        describe_table.sql
+        comment_on_table.sql
+
+    /Documentation          -- Documentation and SQL script descriptions
+        /ERD               -- Entity-Relationship Diagrams and database schema diagrams
+            students_schema_erd.png
+            courses_schema_erd.png
+        /ReadMe            -- Readme files explaining the structure and usage
+            readme_ddl.md
+            readme_dml.md

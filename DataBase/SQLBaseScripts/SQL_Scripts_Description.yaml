@@ -1,0 +1,34 @@
+/SQL_Scripts
+    /Database              -- Scripts for creating and managing databases
+        create_database.sql
+        use_database.sql
+        drop_database.sql
+
+    /DDL
+        /Tables
+        /Views
+        /Indexes
+        /Triggers
+        /StoredProcedures
+        /Functions
+        /Schemas
+
+    /DML
+        /Insert
+        /Update
+        /Delete
+        /Select
+
+    /DCL
+        /Users
+        /Permissions
+
+    /TCL
+        /Transactions
+        
+    /Orders                 -- SQL commands and utilities
+        show_tables.sql
+        show_columns.sql
+        show_databases.sql
+        describe_table.sql
+        comment_on_table.sql
