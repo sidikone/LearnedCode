@@ -1,4 +1,3 @@
-use demo;
-show full columns from comment_telephone;
-show full columns from auto_telephone;
+USE demo;  -- Switch to the 'demo' database
 
+SHOW FULL COLUMNS FROM comment_telephone;  -- Show detailed information for each column in the 'comment_telephone' table
