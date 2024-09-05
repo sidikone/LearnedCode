@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCL Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('./../Images/indoor_workspace_facing_a_large_window_with_a_breathtaking_view_1.png') no-repeat center center fixed;            background-size: auto;
+            background-size: auto;
+            margin: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #272423;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .folder {
+            margin-left: 20px;
+        }
+
+        label {
+            cursor: pointer;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .datetime {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #272423;
+        }
+
+        #digitalClock {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Progress Bar Styles */
+        .progress-bar-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 20px;
+            width: 0;
+            background-color: #4caf50;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+            border-radius: 5px;
+            transition: width 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DCL Management</h1>
+
+    <div class="datetime">
+        <div id="digitalClock"></div>
+        <div id="date"></div>
+    </div>
+
+    <div class="container">
+        <form id="checkboxForm">
+            <div>
+
+                <label><input type="checkbox" name="option" value="Users"> Users</label>
+                <div class="folder"></div>
+            
+                <label><input type="checkbox" name="option" value="Roles"> Roles</label>
+                <div class="folder"></div>
+            
+                <label><input type="checkbox" name="option" value="Permissions"> Permissions</label>
+                <div class="folder"></div>
+            
+                <label><input type="checkbox" name="option" value="Profiles"> Profiles</label>
+                <div class="folder"></div>
+
+                <label><input type="checkbox" name="option" value="Auditing"> Auditing</label>
+                <div class="folder"></div>
+            
+            </div>
+
+            <div class="controls">
+                <button type="submit">Save</button>
+                <button type="button" id="loadButton">Load</button>
+            </div>
+        </form>
+
+        <!-- Progress Bar Section -->
+        <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar">0%</div>
+        </div>
+
+    </div>
+
+    <script>
+        // Function to update the date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('date').textContent = now.toLocaleDateString(undefined, dateOptions);
+
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('digitalClock').textContent = timeString;
+        }
+
+        // Initialize the date and time on page load and update every second
+        setInterval(updateDateTime, 1000);
+
+        // Function to update the progress bar
+        function updateProgressBar() {
+            const checkboxes = document.querySelectorAll('input[name="option"]');
+            const checkedCheckboxes = document.querySelectorAll('input[name="option"]:checked');
+            const totalCheckboxes = checkboxes.length;
+            const checkedCount = checkedCheckboxes.length;
+            const percentage = (checkedCount / totalCheckboxes) * 100;
+
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = Math.round(percentage) + '%';
+        }
+
+        // Save selected options to localStorage
+        document.getElementById('checkboxForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const checkboxes = document.querySelectorAll('input[name="option"]');
+            let selectedOptions = [];
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    selectedOptions.push(checkbox.value);
+                }
+            });
+
+            localStorage.setItem('selectedOptions', JSON.stringify(selectedOptions));
+        });
+
+        // Load saved options from localStorage
+        document.getElementById('loadButton').addEventListener('click', function() {
+            const savedOptions = JSON.parse(localStorage.getItem('selectedOptions'));
+
+            if (savedOptions) {
+                const checkboxes = document.querySelectorAll('input[name="option"]');
+                checkboxes.forEach((checkbox) => {
+                    checkbox.checked = savedOptions.includes(checkbox.value);
+                });
+            }
+
+            updateProgressBar(); // Update progress bar after loading
+        });
+
+        // Automatically load options and update progress bar on page load
+        window.onload = function() {
+            const savedOptions = JSON.parse(localStorage.getItem('selectedOptions'));
+            if (savedOptions) {
+                const checkboxes = document.querySelectorAll('input[name="option"]');
+                checkboxes.forEach((checkbox) => {
+                    checkbox.checked = savedOptions.includes(checkbox.value);
+                });
+            }
+
+            updateProgressBar(); // Initial progress bar update
+        };
+
+        // Attach event listener to checkboxes to update progress bar on change
+        const checkboxes = document.querySelectorAll('input[name="option"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', updateProgressBar);
+        });
+    </script>
+
+</body>
+</html>
