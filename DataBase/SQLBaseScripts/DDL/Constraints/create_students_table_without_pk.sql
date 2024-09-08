@@ -1,4 +1,4 @@
--- Create a table named 'students_pk'
+-- Create a table named 'students_without_pk'
 
 CREATE TABLE students_without_pk (
 
