@@ -1,4 +1,4 @@
-CREATE TABLE Enrollments (
+CREATE TABLE enrollments (
     enrollment_id INT,                  -- Primary key for the enrollment
     student_id INT,                     -- Foreign key referencing the student
     course_id INT,                      -- Foreign key referencing the course
