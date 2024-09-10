@@ -1,6 +1,6 @@
 -- Create a table named 'students_without_pk'
 
-CREATE TABLE students_pk (
+CREATE TABLE students (
 
     student_id INT,                                 -- Unique ID for each student
     first_name VARCHAR(50) NOT NULL,                -- First name of the student
