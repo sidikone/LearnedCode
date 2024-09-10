@@ -1,0 +1,9 @@
+# pk : primary key
+# fk : foreign key
+# ck : composite key
+
+1. create_students_table.sql : pk (pk_student_id)
+2. create_teachers_table.sql : pk (pk_teacher_id)
+3. create_course_table.sql : pk(pk_course_id) - fk(fk_teacher_id)
+4. create_enrollments_table.sql : pk(pk_enrollment_id) - fk(fk_student_id, fk_course_id)
+5. create_students_grade_table.sql : ck(pk_student_grade) - fk(fk_student_id, fk_course_id)

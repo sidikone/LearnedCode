@@ -6,9 +6,9 @@ CREATE TABLE studentgrades(
 
     CONSTRAINT pk_student_grade PRIMARY KEY (student_id, course_id, term),      -- Composite key
 
-    CONSTRAINT fk_student FOREIGN KEY (student_id)      -- Foreign key constraint for the student 
+    CONSTRAINT fk_student_id FOREIGN KEY (student_id)      -- Foreign key constraint for the student 
     REFERENCES student(student_id),
 
-    CONSTRAINT fk_course FOREIGN KEY (course_id)        -- Foreign key constraint for the course
+    CONSTRAINT fk_course_id FOREIGN KEY (course_id)        -- Foreign key constraint for the course
     REFERENCES course(course_id)
 );

@@ -7,7 +7,7 @@ CREATE TABLE course (
     teacher_id INT,                                     -- Foreign key referencing the teacher
 
     CONSTRAINT pk_course_id PRIMARY KEY (course_id)     -- Named primary key constraint
-    CONSTRAINT fk_teacher FOREIGN KEY (teacher_id)      -- Named foreign key constraint for the teacher
+    CONSTRAINT fk_teacher_id FOREIGN KEY (teacher_id)      -- Named foreign key constraint for the teacher
     REFERENCES teachers(teacher_id)
 );
 
@@ -17,5 +17,5 @@ CREATE TABLE course (
 3. course table includes a teacher_id column that references the teacher_id in the teacher table
    the foreign key is named fk_teacher and ensures that each course is associated with a teacher
    from the department
-4. the teacher_id column in the course table is linked to the teacher_id column in the teacher table
+4. the teacher_id column in the course table is linked to the teacher_id column in the teacher table.
 */
